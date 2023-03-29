@@ -1,0 +1,18 @@
+{{#if posts}}
+<h1>Recent Posts</h1>
+{{#each posts}}
+<div class="card my-3">
+    <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <a href="/posts/{{this.id}}" class="btn btn-primary">Read More</a>
+    </div>
+</div>
+{{#if @last}}
+{{!-- Stop after displaying the first 5 posts --}}
+{{@break}}
+{{/if}}
+{{/each}}
+{{else}}
+<p>No posts found.</p>
+{{/if}}
